@@ -19,7 +19,7 @@ class CharacterSorterTest {
     }
 
     @Test
-    void testCharacterSorterSortsAllyExampleString() {
+    void testCharacterSorterSortsExampleString() {
         String allyExample = "When not studying nuclear physics, Bambi likes to play" +
                 " beach volleyball.";
         CharacterSorter characterSorter = new CharacterSorter();
