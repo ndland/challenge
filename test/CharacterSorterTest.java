@@ -31,6 +31,12 @@ class CharacterSorterTest {
     }
 
     @Test
+    void testCharacterSorterSortsSentencesWithNumbers() {
+        String sentence = "This is a sentence, and it includes the number 3.";
+        assertHelper("aabccddeeeeeehhiiiilmnnnnnrssssttttuu", sentence);
+    }
+
+    @Test
     void testCharacterSorterSortsExampleString() {
         String example = "When not studying nuclear physics, Bambi likes to play" +
                 " beach volleyball.";

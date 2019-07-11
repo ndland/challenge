@@ -2,7 +2,7 @@ class CharacterSorter {
 
     String sort(String sentence) throws Exception {
         if (sentence == null || sentence.length() == 0) { throw new Exception("String cannot be null or empty"); }
-        String everythingButLettersAndNumbersRegex = "[^A-Za-z0-9]";
+        String everythingButLettersAndNumbersRegex = "[^A-Za-z]";
         char[] charArray = sentence
                 .replaceAll(everythingButLettersAndNumbersRegex, "")
                 .toLowerCase()
