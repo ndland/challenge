@@ -1,29 +1,38 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CharacterSorterTest {
 
+    private CharacterSorter characterSorter;
+
+    @BeforeEach
+    void setUp() {
+        characterSorter = new CharacterSorter();
+    }
+
     @Test
     void testCharacterSorterSortsSingleWords() {
         String word = "word";
-        CharacterSorter characterSorter = new CharacterSorter();
-        assertEquals("dorw", characterSorter.sort(word), "Not sorted correctly");
+        assertHelper("dorw", word);
     }
 
     @Test
     void testCharacterSorterSortsSentences() {
         String sentence = "This is a sentence.";
-        CharacterSorter characterSorter = new CharacterSorter();
-        assertEquals("aceeehiinnssstt", characterSorter.sort(sentence), "Not sorted correctly");
+        assertHelper("aceeehiinnssstt", sentence);
     }
 
     @Test
     void testCharacterSorterSortsExampleString() {
-        String allyExample = "When not studying nuclear physics, Bambi likes to play" +
+        String example = "When not studying nuclear physics, Bambi likes to play" +
                 " beach volleyball.";
-        CharacterSorter characterSorter = new CharacterSorter();
-        assertEquals("aaaaabbbbcccdeeeeeghhhiiiiklllllllmnnnnooopprsssstttuuvwyyyy",
-                characterSorter.sort(allyExample), "Not sorted correctly");
+        assertHelper("aaaaabbbbcccdeeeeeghhhiiiiklllllllmnnnnooopprsssstttuuvwyyyy", example);
     }
+
+    void assertHelper(String expected, String actual) {
+        assertEquals(expected, characterSorter.sort(actual), "Not sorted correctly");
+    }
+
 }
