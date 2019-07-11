@@ -15,7 +15,7 @@ class CharacterSorter {
     }
 
     // Best case time complexity is O(nlogn)
-    // Worst case time complexity is O(n^2)
+    // Worst case time complexity is O(n^2). In my case this is unlikely, but it is still possible.
     private void quickSort(char[] array, int start, int end) {
         // Make sure the start is less than the end to avoid issues when sorting
         if (start >= end) return;
