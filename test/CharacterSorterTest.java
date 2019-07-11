@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CharacterSorterTest {
 
@@ -10,6 +11,11 @@ class CharacterSorterTest {
     @BeforeEach
     void setUp() {
         characterSorter = new CharacterSorter();
+    }
+
+    @Test
+    void testWhenArrayIsNullNothingIsSorted() {
+        assertHelper(null, null);
     }
 
     @Test
@@ -32,7 +38,11 @@ class CharacterSorterTest {
     }
 
     void assertHelper(String expected, String actual) {
-        assertEquals(expected, characterSorter.sort(actual), "Not sorted correctly");
+        try {
+            assertEquals(expected, characterSorter.sort(actual), "Not sorted correctly");
+        } catch (Exception exception) {
+            assertTrue(exception.getMessage().contains("String cannot be null or empty"));
+        }
     }
 
 }

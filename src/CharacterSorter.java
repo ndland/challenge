@@ -1,6 +1,7 @@
 class CharacterSorter {
 
-    String sort(String sentence) {
+    String sort(String sentence) throws Exception {
+        if (sentence == null || sentence.length() == 0) { throw new Exception("String cannot be null or empty"); }
         String everythingButLettersAndNumbersRegex = "[^A-Za-z0-9]";
         char[] charArray = sentence
                 .replaceAll(everythingButLettersAndNumbersRegex, "")
@@ -11,8 +12,7 @@ class CharacterSorter {
     }
 
     private void quickSort(char[] array, int start, int end) {
-        // If there are any issues with the array, return, nothing to do.
-        if (array == null || array.length == 0) return;
+        // Make sure the start is less than the end to avoid issues when sorting
         if (start >= end) return;
 
         // pick the pivot
